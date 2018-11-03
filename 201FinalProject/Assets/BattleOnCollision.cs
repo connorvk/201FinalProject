@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BattleOnCollision : MonoBehaviour {
 
-    public GameObject Other;
     private Renderer renderer;
     private Rigidbody2D rb;
 
@@ -16,9 +15,9 @@ public class BattleOnCollision : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 	}
 
-    void OnCollisionStay2D(Collision collision)
+    void OnCollision2D(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.collider.CompareTag("Player"))
         {
             Debug.Log("Colliding");
         }
