@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1161304752}
+  - component: {fileID: 1161304755}
   - component: {fileID: 1161304751}
   - component: {fileID: 1161304750}
   - component: {fileID: 1161304753}
@@ -163,7 +164,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.2242284
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -214,3 +215,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9612c33a685ba428ef030f385aaf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1161304755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1161304749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e64b70838de5d54788cff6c378d8516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainCharacter: {fileID: 0}

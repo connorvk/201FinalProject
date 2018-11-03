@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     private float walkSpeed;
-    private float curSpeed;
+    public float curSpeed;
     private float maxSpeed;
     private Rigidbody2D rb;
 
@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        curSpeed = 1.0f;
         maxSpeed = curSpeed;
         // Move senteces
         rb.velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * curSpeed, 0.8f),
