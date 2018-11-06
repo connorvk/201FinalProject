@@ -56,6 +56,7 @@
      <Compile Include="Assets\BattleOnCollision.cs" />
      <Compile Include="Assets\CameraController.cs" />
      <Compile Include="Assets\GameManager.cs" />
+     <Compile Include="Assets\playerController.cs" />
      <Compile Include="Assets\PlayerMovement.cs" />
      <Compile Include="Assets\ReadUserInfo.cs" />
      <Compile Include="Assets\UserInfo.cs" />
