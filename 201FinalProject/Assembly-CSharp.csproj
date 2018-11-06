@@ -59,6 +59,7 @@
      <Compile Include="Assets\PlayerMovement.cs" />
      <Compile Include="Assets\ReadUserInfo.cs" />
      <Compile Include="Assets\UserInfo.cs" />
+     <Compile Include="Assets\Walking.cs" />
      <None Include="Assets\ActRPGsprites\readme.txt" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/home/edmond/CS201_Final/201FinalProject/201FinalProject/201FinalProject/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
