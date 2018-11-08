@@ -1,6 +1,6 @@
 ﻿public class monsterMove {
-    string moveName;
-    int dmg;
+    public string moveName;
+    public int dmg;
 
     public monsterMove(string n, int d)
     {
