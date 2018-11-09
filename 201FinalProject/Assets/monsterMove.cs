@@ -1,4 +1,9 @@
-﻿public class monsterMove {
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+public class monsterMove {
     public string moveName;
     public int dmg;
 

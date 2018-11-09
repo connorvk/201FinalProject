@@ -18,8 +18,9 @@ public class monsterScript : MonoBehaviour {
     public List<monsterMove> moves;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         maxHP = 100;
+        status = false;
         if (!status)
         {
             //wild monster init

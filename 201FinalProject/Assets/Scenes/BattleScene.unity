@@ -503,7 +503,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &882915267
 GameObject:
@@ -532,6 +532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56f3bf384a1e4648bafc18b30a65f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BLOBpre: {fileID: 1545404475615622, guid: be490650b6cd2ac42b97e03d1234c21c, type: 2}
+  LONGpre: {fileID: 1290449965776060, guid: 54620583e01664c4385adb231a238e8a, type: 2}
+  CSpr: {fileID: 1859765738006762, guid: ffc15503252a57640a0e75479ac5eea3, type: 2}
   MessagePanel: {fileID: 573903738}
   MessageText: {fileID: 1273934442}
   moveOne: {fileID: 917863637}
@@ -549,7 +552,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -631,7 +634,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 917863638}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 882915268}
+        m_MethodName: makeMoveOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &917863638
@@ -705,7 +719,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4951948865120596, guid: be490650b6cd2ac42b97e03d1234c21c, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be490650b6cd2ac42b97e03d1234c21c, type: 2}
@@ -1024,7 +1038,7 @@ RectTransform:
   - {fileID: 535687283}
   - {fileID: 573903739}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1068,57 +1082,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4289923629188838, guid: 54620583e01664c4385adb231a238e8a, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54620583e01664c4385adb231a238e8a, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1564937453
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1564937455}
-  - component: {fileID: 1564937454}
-  m_Layer: 0
-  m_Name: SceneObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1564937454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1564937453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a56f3bf384a1e4648bafc18b30a65f12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MessagePanel: {fileID: 0}
-  MessageText: {fileID: 0}
-  moveOne: {fileID: 0}
-  moveTwo: {fileID: 0}
-  enemyHP: {fileID: 0}
-  playerHP: {fileID: 0}
---- !u!4 &1564937455
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1564937453}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.15094, y: 7.40257, z: -0.28799897}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1604021032
 Prefab:
   m_ObjectHideFlags: 0
@@ -1156,7 +1124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4772854160214762, guid: ffc15503252a57640a0e75479ac5eea3, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffc15503252a57640a0e75479ac5eea3, type: 2}
@@ -1236,7 +1204,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1679929976}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 882915268}
+        m_MethodName: makeMoveTwo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1679929976
