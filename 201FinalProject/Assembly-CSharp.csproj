@@ -54,8 +54,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BattleOnCollision.cs" />
+     <Compile Include="Assets\BattleScene.cs" />
      <Compile Include="Assets\CameraController.cs" />
      <Compile Include="Assets\GameManager.cs" />
+     <Compile Include="Assets\monsterMove.cs" />
+     <Compile Include="Assets\monsterScript.cs" />
+     <Compile Include="Assets\MonsterStateMachine.cs" />
      <Compile Include="Assets\playerController.cs" />
      <Compile Include="Assets\PlayerMovement.cs" />
      <Compile Include="Assets\ReadUserInfo.cs" />
