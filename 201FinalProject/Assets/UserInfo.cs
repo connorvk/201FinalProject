@@ -4,35 +4,45 @@ using UnityEngine;
 using System.IO;
 
 public class UserInfo : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		NameAndPass user = new NameAndPass("Test Name", "Test Password");
-		string message = JsonUtility.ToJson(user);
-		File.WriteAllText("message.json", message);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public static bool SignedIn; //the flag that determines if content is locked or not
 }
 
 //need a wrapper class for variables you want in the json file
 [System.Serializable]
-public class NameAndPass
+public class TypeNamePass
 {
-	public string username, password;
+	public string Typename, Username, Password;
 
-	public NameAndPass()
+	public TypeNamePass()
 	{
-		this.username = "";
-		this.password = "";
+        this.Typename = "";
+		this.Username = "";
+		this.Password = "";
 	}
 
-	public NameAndPass(string username, string password)
+	public TypeNamePass(string typename, string username, string password)
 	{
-		this.username = username;
-		this.password = password;
+        this.Typename = typename;
+		this.Username = username;
+		this.Password = password;
 	}
+}
+
+[System.Serializable]
+public class UserResults
+{
+    public string Comment;
+    public bool Result;
+
+    public UserResults()
+    {
+        this.Comment = "";
+        this.Result = false;
+    }
+
+    public UserResults(string comment, bool result)
+    {
+        this.Comment = comment;
+        this.Result = result;
+    }
 }
