@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class monsterScript : MonoBehaviour {
+public class monsterScript : MonoBehaviour
+{
     public enum Type
     {
         BLOB,
         Long,
         Char_Star
     }
-
     public Type type;
     public string mName;
     public bool status;
@@ -17,8 +17,8 @@ public class monsterScript : MonoBehaviour {
     public int maxHP;
     public List<monsterMove> moves;
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
         maxHP = 100;
         status = false;
         if (!status)
