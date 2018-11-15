@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
 	
     public void LoadBattleScene(LevelState state)
     {
-        SceneManager.LoadScene("BattleScene");
         player.SetActive(false);
+        SceneManager.LoadScene("BattleScene");
         //if (state == LevelState.Forest)
         //{
         //    SceneManager.LoadScene("BattleScene");

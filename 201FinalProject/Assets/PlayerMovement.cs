@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour{
     private Rigidbody2D rb;
     //TODO check structure for presentation
     public List<GameObject> Enemy;
+
     // Use this for initialization
     void Start ()
     {
