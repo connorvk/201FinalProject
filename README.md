@@ -4,25 +4,25 @@
 Test function in backend (Passin.json)
 Backend will write a Passout.json when read Passin.json
 
-# Load Market
+- Load Market
 {
 	"Typename": "LoadMarket"
 }
 
-# Register
+- Register
 {
   "Typename": "Register",
   "Username": "Vincent",
   "Userinventory": "XXXXXXXXXXXXXXXXXXXX"
 }
 
-# Login (passout.json will return user's inventory)
+- Login (passout.json will return user's inventory)
 {
   "Typename": "Login",
   "Username": "Vincent"
 }
 
-# Sell
+- Sell
 {
   "Typename": "Sell",
   "Username": "Vincent",
@@ -32,7 +32,7 @@ Backend will write a Passout.json when read Passin.json
   "Attack": 10
 }
 
-# Trade
+- Trade
 {
   "Typename": "Trade",
   "Buyer": "Vincent",
@@ -41,7 +41,7 @@ Backend will write a Passout.json when read Passin.json
   "Ask": "cat"
 }
 
-# Find (find exact monster)
+- Find (find exact monster)
 {
   "Typename": "Find",
   "Username": "Vincent",
@@ -49,7 +49,7 @@ Backend will write a Passout.json when read Passin.json
   "Ask": "cat",
 }
 
-# Remove (remove monster from market place)
+- Remove (remove monster from market place)
 {
   "Typename": "Remove",
   "Username": "Vincent",
