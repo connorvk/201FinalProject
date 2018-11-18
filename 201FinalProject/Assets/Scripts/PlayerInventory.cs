@@ -23,4 +23,14 @@ public class PlayerInventory : MonoBehaviour {
     {
 		
 	}
+
+    public void LoadInventory(string inventoryJSON)
+    {
+        Inventory = JsonUtility.FromJson<HashSet<monsterScript>>(inventoryJSON);
+    }
+
+    public HashSet<monsterScript> GetInventory()
+    {
+        return Inventory;
+    }
 }

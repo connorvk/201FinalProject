@@ -39,9 +39,16 @@ public class SubmitLogin : MonoBehaviour {
         if (!emptyField)
         {
             user = user.ToLower();
-            userPackage = new TypeNamePass(type, user, pass);
+            Debug.Log("Still here 1\n");
+            PlayerInventory pi = GameManager.instance.player.GetComponent("PlayerInventory") as PlayerInventory;
+            Debug.Log("Still here 2\n");
+            string inventJSON = JsonUtility.ToJson(pi.GetInventory());
+            Debug.Log("Still here 3\n");
+            userPackage = new TypeNamePass(type, user, pass, inventJSON);
             string message = JsonUtility.ToJson(userPackage);
+            Debug.Log("Still here 4\n");
             File.WriteAllText("Passin.json", message);
+            Debug.Log("Still here 5\n");
         }
     }
 }

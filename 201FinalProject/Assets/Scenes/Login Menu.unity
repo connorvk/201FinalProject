@@ -491,6 +491,7 @@ MonoBehaviour:
     Typename: 
     Username: 
     Password: 
+    Userinventory: 
 --- !u!1 &506737926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,6 +1992,7 @@ MonoBehaviour:
     Typename: 
     Username: 
     Password: 
+    Userinventory: 
 --- !u!114 &2062346254
 MonoBehaviour:
   m_ObjectHideFlags: 0
