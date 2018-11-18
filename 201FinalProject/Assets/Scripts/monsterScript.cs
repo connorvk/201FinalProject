@@ -13,7 +13,7 @@ public class monsterScript : MonoBehaviour
     }
     public Type type;
     private string MonsterName;
-    public bool status;
+    private bool status;
     public int currHP;
     public int maxHP;
     public List<monsterMove> moves;
@@ -22,18 +22,16 @@ public class monsterScript : MonoBehaviour
 
     public void LoadMonsetrSprite(int type)
     {
-        Debug.Log("here");
         Debug.Log(sprites.Length);
         spriteR.sprite = sprites[type];
     }
 
     // Use this for initialization
     void Awake () {
-        spriteR = gameObject.GetComponent<SpriteRenderer>();
+        spriteR = GetComponent<SpriteRenderer>();
         maxHP = 100;
         status = false;
-        FolderName = "../EnemySprites/en";
-        sprites = Resources.LoadAll<Sprite>(FolderName);
+        sprites = Resources.LoadAll<Sprite>("EnemySprites");
         if (!status)
         {
             //wild monster init
@@ -41,16 +39,17 @@ public class monsterScript : MonoBehaviour
             if (type == Type.BLOB)
             {
                 MonsterName = "wild BLOB";
-                LoadMonsetrSprite(0);
+                LoadMonsetrSprite(1);
             }
             else if (type == Type.Long)
             {
                 MonsterName = "wild Long";
+                LoadMonsetrSprite(232);
             }
             else if (type == Type.Char_Star)
             {
                 MonsterName = "wild Char_Star";
-
+                LoadMonsetrSprite(99);
             }
 
         }
