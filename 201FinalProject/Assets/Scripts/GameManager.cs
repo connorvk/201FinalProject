@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Threading;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,53 +15,51 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     public GameObject player;
     public LevelState mCurrentState;
-	
+    public static Thread saveThread;
+    private EventWaitHandle saveThreadWait;
+    
+    private bool saveThreadRunning;
+
     public void LoadBattleScene(LevelState state)
     {
         player.SetActive(false);
         SceneManager.LoadScene("BattleScene");
-        //if (state == LevelState.Forest)
-        //{
-        //    SceneManager.LoadScene("BattleScene");
-        //}
-        //else if (state == LevelState.Desert)
-        //{
-
-        //}
-        //else if (state == LevelState.Lava)
-        //{
-
-        //}
     }
 
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
-        instance = this;
+        if (instance == null)
+            instance = this;
+
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(player);
+        
+        //TODO get the JSON file from connor to load forest
         mCurrentState = LevelState.Forest;
+
+        //MultisaveThreading starts here
+        saveThread = new Thread(save);
+        saveThreadWait = new EventWaitHandle(true, EventResetMode.ManualReset);
+        saveThread.Start();
     }
+
+    public void save()
+    {
+        //Debug.Log("server started");
+        saveThreadWait.Reset();
+        saveThreadWait.WaitOne();
+        //Do your work here user break
+        //Debug.Log("Put save code here");
+        saveThreadWait.Reset();
+    }
+
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-        //TODO do this in another function instead of update
-
-        //if(mCurrentState == LevelState.Forest)
-        //{
-        //    //Load Level
-        //    SceneManager.LoadScene("Forest Level");
-        //}
-        //else if(mCurrentState == LevelState.Desert)
-        //{
-        //    //Load Level
-        //    SceneManager.LoadScene("Desert Level");
-        //}
-        //else if(mCurrentState == LevelState.Lava)
-        //{
-        //    //Load Level
-        //    SceneManager.LoadScene("Lava Level");
-        //}
+        //Used to start thread
+        //saveThreadWait.Set();
     }
 }
+ 

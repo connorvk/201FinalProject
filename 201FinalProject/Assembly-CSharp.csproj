@@ -65,12 +65,16 @@
     <Compile Include="Assets\Scripts\BattleScene.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GuestLogin.cs" />
+    <Compile Include="Assets\Scripts\Loader.cs" />
+    <Compile Include="Assets\Scripts\LoadLevel.cs" />
     <Compile Include="Assets\Scripts\monsterMove.cs" />
     <Compile Include="Assets\Scripts\monsterScript.cs" />
     <Compile Include="Assets\Scripts\MonsterStateMachine.cs" />
     <Compile Include="Assets\Scripts\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\ReadUserInfo.cs" />
+    <Compile Include="Assets\Scripts\SubmitLogin.cs" />
     <Compile Include="Assets\Scripts\UserInfo.cs" />
     <None Include="Assets\ActRPGsprites\readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">

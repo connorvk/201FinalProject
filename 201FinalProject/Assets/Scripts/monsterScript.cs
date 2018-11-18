@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class monsterScript : MonoBehaviour
 {
+    private string FolderName;
     public enum Type
     {
         BLOB,
@@ -11,31 +12,44 @@ public class monsterScript : MonoBehaviour
         Char_Star
     }
     public Type type;
-    public string mName;
+    private string MonsterName;
     public bool status;
     public int currHP;
     public int maxHP;
     public List<monsterMove> moves;
+    private SpriteRenderer spriteR;
+    private Sprite[] sprites;
+
+    public void LoadMonsetrSprite(int type)
+    {
+        Debug.Log("here");
+        Debug.Log(sprites.Length);
+        spriteR.sprite = sprites[type];
+    }
 
     // Use this for initialization
     void Awake () {
+        spriteR = gameObject.GetComponent<SpriteRenderer>();
         maxHP = 100;
         status = false;
+        FolderName = "../EnemySprites/en";
+        sprites = Resources.LoadAll<Sprite>(FolderName);
         if (!status)
         {
             //wild monster init
             currHP = maxHP;
             if (type == Type.BLOB)
             {
-                mName = "wild BLOB";
+                MonsterName = "wild BLOB";
+                LoadMonsetrSprite(0);
             }
             else if (type == Type.Long)
             {
-                mName = "wild Long";
+                MonsterName = "wild Long";
             }
             else if (type == Type.Char_Star)
             {
-                mName = "wild Char_Star";
+                MonsterName = "wild Char_Star";
 
             }
 
@@ -55,7 +69,6 @@ public class monsterScript : MonoBehaviour
         {
             moves.Add(new monsterMove("long one", 5));
             moves.Add(new monsterMove("long two", 15));
-
         }
 	}
 
@@ -68,10 +81,4 @@ public class monsterScript : MonoBehaviour
     {
         return moves[1].dmg;
     }
-	
-
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

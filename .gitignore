@@ -35,3 +35,10 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+201FinalProject/Assembly-CSharp.csproj
+201FinalProject/Library/ScriptAssemblies/Assembly-CSharp.dll
+*.dll
+*.mdb
+*.stamp
+*.log
+*.cache
