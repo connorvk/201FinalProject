@@ -31,6 +31,8 @@ public class ReadUserInfo : MonoBehaviour
             if (ur.Result)
             {
                 UserInfo.SignedIn = true;
+                PlayerInventory pi = GameManager.instance.player.GetComponent("PlayerInventory") as PlayerInventory;
+                pi.LoadInventory(ur.Userinventory);
                 SceneManager.LoadScene(1);
             }
             else
