@@ -118,6 +118,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1420300774867340, guid: 7496d64546c14624fb07c55f0619bb1b,
     type: 2}
   m_PrefabInternal: {fileID: 1073011835}
+--- !u!114 &25421512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 25421504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f84f3d6633444a2bcf9862e1ca687a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &507662344
 Prefab:
   m_ObjectHideFlags: 0
@@ -302,7 +313,7 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: f23d4203790b8452e8293143de864f74, type: 2}
+      objectReference: {fileID: 9100000, guid: 196217f1ad9da4d4cb16de34e56b9ad2, type: 2}
     - target: {fileID: 114779648909010608, guid: 7496d64546c14624fb07c55f0619bb1b,
         type: 2}
       propertyPath: Monster
@@ -411,6 +422,7 @@ GameObject:
   - component: {fileID: 1910274795}
   - component: {fileID: 1910274794}
   - component: {fileID: 1910274793}
+  - component: {fileID: 1910274791}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -418,6 +430,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1910274791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910274790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f84f3d6633444a2bcf9862e1ca687a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!81 &1910274793
 AudioListener:
   m_ObjectHideFlags: 0
