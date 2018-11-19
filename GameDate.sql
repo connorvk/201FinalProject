@@ -15,13 +15,15 @@ INSERT INTO Userinfo (Username, UserPassword)
 
 CREATE TABLE Inventory(	
 	Username VARCHAR(255),
-	Userinventory VARCHAR(1023)
+	Userinventory VARCHAR(1023),
+    Login BOOLEAN NOT NULL,
+    InThread BOOLEAN NOT NULL
 );
 
-INSERT INTO Inventory (Username, Userinventory)
-	VALUES ('Vincent', 'aaaaaa'),
-		   ('Baiyu', 'bbbbbb'),
-           ('Connor', 'cccccc');
+INSERT INTO Inventory (Username, Userinventory, Login, InThread)
+	VALUES ('Vincent', 'aaaaaa', false, false),
+		   ('Baiyu', 'bbbbbb', false, false),
+           ('Connor', 'cccccc', false, false);
 
 CREATE TABLE Market(
 	MonsterID INT(11) AUTO_INCREMENT PRIMARY KEY,
