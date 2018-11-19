@@ -6,7 +6,7 @@ Backend will write a Passout.json when read Passin.json
 
 - Load Market
 {
-	"Typename": "LoadMarket"
+  "Typename": "LoadMarket"
 }
 
 - Register
