@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4689021001018564}
   - component: {fileID: 50462575661765946}
   - component: {fileID: 61056564976474424}
-  - component: {fileID: 114711444199213698}
+  - component: {fileID: 114146737010357064}
   - component: {fileID: 212557728760593752}
   m_Layer: 0
   m_Name: Monster
@@ -88,7 +88,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.572009, y: 1.869092}
   m_EdgeRadius: 0
---- !u!114 &114711444199213698
+--- !u!114 &114146737010357064
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,9 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  MonsterName: 
+  status: 0
   currHP: 0
   maxHP: 0
   moves: []
+  sprites: []
 --- !u!212 &212557728760593752
 SpriteRenderer:
   m_ObjectHideFlags: 1
