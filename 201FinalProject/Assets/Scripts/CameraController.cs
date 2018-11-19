@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour {
     // Use this for initialization
 	void Start ()
     {
+        MainCharacter = GameManager.instance.player;
         offset = transform.position - MainCharacter.transform.position;
 	}
 	

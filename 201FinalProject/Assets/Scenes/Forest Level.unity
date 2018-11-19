@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &149330712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1359317658080590, guid: 4e4eea8597ad9154e98b090b516f2e2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1771772586}
 --- !u!1001 &348184938
 Prefab:
   m_ObjectHideFlags: 0
@@ -538,6 +543,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114626431183670954, guid: 4e4eea8597ad9154e98b090b516f2e2a,
+        type: 2}
+      propertyPath: curSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e4eea8597ad9154e98b090b516f2e2a, type: 2}
   m_IsPrefabAsset: 0
@@ -552,8 +562,6 @@ GameObject:
   - component: {fileID: 1910274795}
   - component: {fileID: 1910274794}
   - component: {fileID: 1910274793}
-  - component: {fileID: 1910274792}
-  - component: {fileID: 1910274791}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -561,29 +569,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1910274791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1910274790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d9612c33a685ba428ef030f385aaf63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ErrorResults: {fileID: 0}
---- !u!114 &1910274792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1910274790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fddd8b5281eaf4c489765ceaabbe13a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!81 &1910274793
 AudioListener:
   m_ObjectHideFlags: 0
@@ -642,7 +627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e64b70838de5d54788cff6c378d8516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   MainCharacter: {fileID: 659634186}
+=======
+  MainCharacter: {fileID: 149330712}
+>>>>>>> af1826a29f49d7a4405169dd485d1496a22a8d4f
 --- !u!4 &1910274796
 Transform:
   m_ObjectHideFlags: 0

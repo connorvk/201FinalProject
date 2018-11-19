@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour {
+public class PlayerInventory : MonoBehaviour
+{
 
-    private HashSet<monsterScript> Inventory;
+    public static ListWrapper Inventory;
     public GameObject Monster;
 
-    void AddMonseter(monsterScript monster) { Inventory.Add(monster); }
-    void RemoveMonseter(monsterScript monster) { Inventory.Remove(monster); }
+    void AddMonseter(monsterScript monster) { Inventory.InventoryList.Add(monster); }
+    void RemoveMonseter(monsterScript monster) { Inventory.InventoryList.Remove(monster); }
 
     // Use this for initialization
     void Awake ()
     {
-        monsterScript DefaultMonster = new monsterScript();
+        Inventory = new ListWrapper();
+        monsterScript DefaultMonster = ScriptableObject.CreateInstance<monsterScript>();
         DefaultMonster.type = monsterScript.Type.BLOB;
-        Inventory.Add(DefaultMonster);
+        AddMonseter(DefaultMonster);
 	}
 	
 	// Update is called once per frame
@@ -23,14 +25,15 @@ public class PlayerInventory : MonoBehaviour {
     {
 		
 	}
+}
 
-    public void LoadInventory(string inventoryJSON)
-    {
-        Inventory = JsonUtility.FromJson<HashSet<monsterScript>>(inventoryJSON);
-    }
+[System.Serializable]
+public class ListWrapper
+{
+    public List<monsterScript> InventoryList;
 
-    public HashSet<monsterScript> GetInventory()
+    public ListWrapper()
     {
-        return Inventory;
+        this.InventoryList = new List<monsterScript>();
     }
 }
