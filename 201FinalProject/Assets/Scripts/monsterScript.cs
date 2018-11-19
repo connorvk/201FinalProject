@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class monsterScript : ScriptableObject
+public class monsterScript : MonoBehaviour
 {
-    public string FolderName;
+    private string FolderName;
     public enum Type
     {
         BLOB,
@@ -15,23 +15,27 @@ public class monsterScript : ScriptableObject
     public Type type;
     public string MonsterName;
     public bool status;
+    [HideInInspector]
     public int currHP;
+    [HideInInspector]
     public int maxHP;
+    [HideInInspector]
     public List<monsterMove> moves;
-    public SpriteRenderer spriteR;
-    public Sprite[] sprites;
+    [HideInInspector]
+    private SpriteRenderer spriteR;
+    private Sprite[] sprites;
 
-    public void LoadMonsetrSprite(int type)
+    public void LoadMonsterSprite(int type)
     {
         Debug.Log(sprites.Length);
         //this assignment doesn't work after I made monsterScript into a ScriptableObject
-        //spriteR.sprite = sprites[type];
+        spriteR.sprite = sprites[type];
     }
 
     // Use this for initialization
     void Awake () {
+        spriteR = GetComponent<SpriteRenderer>();
         moves = new List<monsterMove>();
-        spriteR = new SpriteRenderer();
         maxHP = 100;
         status = false;
         sprites = Resources.LoadAll<Sprite>("EnemySprites");
@@ -42,17 +46,17 @@ public class monsterScript : ScriptableObject
             if (type == Type.BLOB)
             {
                 MonsterName = "wild BLOB";
-                LoadMonsetrSprite(1);
+                LoadMonsterSprite(1);
             }
             else if (type == Type.Long)
             {
                 MonsterName = "wild Long";
-                LoadMonsetrSprite(232);
+                LoadMonsterSprite(232);
             }
             else if (type == Type.Char_Star)
             {
                 MonsterName = "wild Char_Star";
-                LoadMonsetrSprite(99);
+                LoadMonsterSprite(567);
             }
 
         }

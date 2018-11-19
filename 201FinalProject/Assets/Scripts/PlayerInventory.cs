@@ -15,7 +15,8 @@ public class PlayerInventory : MonoBehaviour
     void Awake ()
     {
         Inventory = new ListWrapper();
-        monsterScript DefaultMonster = ScriptableObject.CreateInstance<monsterScript>();
+        //monsterScript DefaultMonster = ScriptableObject.CreateInstance<monsterScript>();
+        monsterScript DefaultMonster = new monsterScript();
         DefaultMonster.type = monsterScript.Type.BLOB;
         AddMonseter(DefaultMonster);
 	}
