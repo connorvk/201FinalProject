@@ -56,3 +56,10 @@ Backend will write a Passout.json when read Passin.json
   "Monstername": "pig",
   "Ask": "cat",
 }
+
+- Save (Update user's inventory, filename has to be for example "Vincent.json")
+{
+  "Typename": "Save",
+  "Username": "Vincent",
+  "Userinventory": "kkkkkkkkkk"
+}
