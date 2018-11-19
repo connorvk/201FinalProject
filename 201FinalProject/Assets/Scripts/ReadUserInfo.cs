@@ -19,6 +19,7 @@ public class ReadUserInfo : MonoBehaviour
     //I don't entirely understand this but it seems to put this script in a waiting state until the json exists
     IEnumerator ReadFile()
     {
+        //yield return new WaitUntil(() => !IsFileReady("Passin.json"));
         yield return new WaitUntil(() => IsFileReady("Passout.json"));
         string message = File.ReadAllText("Passout.json");
         if (message != null)
@@ -31,8 +32,10 @@ public class ReadUserInfo : MonoBehaviour
             if (ur.Result)
             {
                 UserInfo.SignedIn = true;
-                PlayerInventory pi = GameManager.instance.player.GetComponent("PlayerInventory") as PlayerInventory;
-                pi.LoadInventory(ur.Userinventory);
+                PlayerInventory.Inventory = JsonUtility.FromJson<ListWrapper>(ur.Userinventory);
+
+                Debug.Log("From Passout.json: " + PlayerInventory.Inventory.InventoryList[0].MonsterName);
+
                 SceneManager.LoadScene(1);
             }
             else
@@ -50,7 +53,15 @@ public class ReadUserInfo : MonoBehaviour
         }
         // If the file can be opened for exclusive access it means that the file
         // is no longer locked by another process.
-        using (FileStream inputStream = File.Open(filename, FileMode.Open, FileAccess.Read, FileShare.None))
-            return inputStream.Length > 0;
+        try
+        {
+            using (FileStream inputStream = File.Open(filename, FileMode.Open, FileAccess.Read, FileShare.None))
+                return inputStream.Length > 0;
+        }
+        catch (IOException ioe)
+        {
+            Debug.Log(ioe.Message);
+        }
+        return true;
     }
 }

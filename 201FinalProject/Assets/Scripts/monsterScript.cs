@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class monsterScript : MonoBehaviour
+[System.Serializable]
+public class monsterScript : ScriptableObject
 {
-    private string FolderName;
+    public string FolderName;
     public enum Type
     {
         BLOB,
@@ -12,23 +13,25 @@ public class monsterScript : MonoBehaviour
         Char_Star
     }
     public Type type;
-    private string MonsterName;
-    private bool status;
+    public string MonsterName;
+    public bool status;
     public int currHP;
     public int maxHP;
     public List<monsterMove> moves;
-    private SpriteRenderer spriteR;
-    private Sprite[] sprites;
+    public SpriteRenderer spriteR;
+    public Sprite[] sprites;
 
     public void LoadMonsetrSprite(int type)
     {
         Debug.Log(sprites.Length);
-        spriteR.sprite = sprites[type];
+        //this assignment doesn't work after I made monsterScript into a ScriptableObject
+        //spriteR.sprite = sprites[type];
     }
 
     // Use this for initialization
     void Awake () {
-        spriteR = GetComponent<SpriteRenderer>();
+        moves = new List<monsterMove>();
+        spriteR = new SpriteRenderer();
         maxHP = 100;
         status = false;
         sprites = Resources.LoadAll<Sprite>("EnemySprites");
