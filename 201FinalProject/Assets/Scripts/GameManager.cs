@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     }
     public static GameManager instance = null;
     public GameObject player;
-    public LevelState mCurrentState;
+    public LevelState CurrentState;
     public static Thread saveThread;
     private EventWaitHandle saveThreadWait;
     
@@ -31,12 +31,14 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+        if (player.GetComponent<PlayerInventory>().Inventory == null)
+            Debug.Log("here is the problem");
 
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(player);
         
         //TODO get the JSON file from connor to load forest
-        mCurrentState = LevelState.Forest;
+        CurrentState = LevelState.Forest;
 
         //MultisaveThreading starts here
         saveThread = new Thread(save);
@@ -58,8 +60,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Used to start thread
-        //saveThreadWait.Set();
     }
 }
  
