@@ -15,10 +15,10 @@ public class ChangeImage : MonoBehaviour {
     void Start ()
     {
         Instantiate(GameManager.instance.player.GetComponent<PlayerInventory>());
-        Monsters = GameManager.instance.player.GetComponent<PlayerInventory>().Inventory;
+        //Monsters = GameManager.instance.player.GetComponent<PlayerInventory>().Inventory;
         //Debug.Log(Monsters.Count); 
-        foreach (monsterScript monster in Monsters)
-            MonsterImages.Add(monster.GetComponent<SpriteRenderer>().sprite);
+        //foreach (monsterScript monster in Monsters)
+        //    MonsterImages.Add(monster.GetComponent<SpriteRenderer>().sprite);
         Debug.Log(MonsterImages.Count);
         for(int i = 0; i < MonsterImages.Count; i++)
         {

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4440038285331548}
   - component: {fileID: 212984110894587222}
+  - component: {fileID: 114223254691382834}
   - component: {fileID: 114857589435943586}
   - component: {fileID: 114626431183670954}
   - component: {fileID: 50526109620979228}
@@ -121,6 +122,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Monster: {fileID: 0}
+--- !u!114 &114223254691382834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1359317658080590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0de197399ed83408435ddeb6856d6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114626431183670954
 MonoBehaviour:
   m_ObjectHideFlags: 1

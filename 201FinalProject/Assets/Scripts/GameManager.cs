@@ -31,8 +31,6 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-        if (player.GetComponent<PlayerInventory>().Inventory == null)
-            Debug.Log("here is the problem");
 
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(player);
