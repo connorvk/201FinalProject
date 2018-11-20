@@ -32,26 +32,21 @@ public class BattleScene : MonoBehaviour {
     [SerializeField]
     Text playerHP;
 
+    IEnumerator EnemyWaitCouroutine(float duration){ yield return new WaitForSeconds(duration);}
+
     // Use this for initialization
     void Awake ()
     {
         battle = false;
         playerWin = false;
 
-        //generate a wild monster
-        //enemy = (GameObject)Instantiate(Monster, new Vector2(0, 0), Quaternion.identity);
         enemy = Monster;
         enemy.GetComponent<monsterScript>().Awake();
-        //generate player monster
-        //player = (GameObject)Instantiate(BLOBpre, new Vector2(0, 0), Quaternion.identity);
 
         player = Player;
         List<monsterScript.Type> inventory = PlayerInventory.Inventory.InventoryList;
-        PlayerMonsterFromPlayer = inventory[0];
-        Debug.Log("Player's first monster: " + inventory.Count);
-        Debug.Log("Player's first monster: " + PlayerMonsterFromPlayer.type);
-        Debug.Log("Player's first monster: " + PlayerMonsterFromPlayer.MonsterInfo.moves.Count);
-
+        PlayerMonsterFromPlayer = new monsterScript();
+        PlayerMonsterFromPlayer.Awake();
         moveOne.GetComponentInChildren<Text>().text= PlayerMonsterFromPlayer.MonsterInfo.moves[0].moveName;
         moveTwo.GetComponentInChildren<Text>().text = PlayerMonsterFromPlayer.MonsterInfo.moves[1].moveName;
         nextTurn();
@@ -73,8 +68,9 @@ public class BattleScene : MonoBehaviour {
             battle = false;
             if (enemy.GetComponent<monsterScript>().MonsterInfo.currHP > 0)
             {
-                curr = enemy.gameObject;
                 MessageText.text = "Enemy Move!!!!!";
+                Debug.Log("Enemy is moving");
+                curr = enemy.gameObject;
                 enemyAttack();
             }
         }
@@ -88,7 +84,6 @@ public class BattleScene : MonoBehaviour {
 
     public void makeMoveTwo()
     {
-
         enemy.GetComponent<monsterScript>().MonsterInfo.currHP -= PlayerMonsterFromPlayer.MonsterInfo.moves[1].dmg;
         nextTurn();
     }
@@ -96,7 +91,7 @@ public class BattleScene : MonoBehaviour {
     void enemyAttack()
     {
         int n = Random.Range(0, 10);
-        if(n >= 7)
+        if (n >= 7)
         {
             PlayerMonsterFromPlayer.MonsterInfo.currHP -= enemy.GetComponent<monsterScript>().MonsterInfo.moves[1].dmg;
         }
@@ -105,7 +100,6 @@ public class BattleScene : MonoBehaviour {
             PlayerMonsterFromPlayer.MonsterInfo.currHP -= enemy.GetComponent<monsterScript>().MonsterInfo.moves[0].dmg;
         }
         nextTurn();
-
     }
 
     void battleEnd()

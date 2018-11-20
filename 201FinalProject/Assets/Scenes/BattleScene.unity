@@ -193,6 +193,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1773510723416754, guid: 55c2438cd607d3b418376204d1085c03, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114629435300461004, guid: 55c2438cd607d3b418376204d1085c03,
+        type: 2}
+      propertyPath: type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -366,7 +371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &560253128
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -451,10 +456,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 560253127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1f5c37d83ef1b44bb1e25bd6fcf5450, type: 3}
+  m_Script: {fileID: 11500000, guid: 02a4ac3da6ea0a14fa686266d5ea6d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
 --- !u!1 &573903738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,7 +1314,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1825310964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a1eb9e9707b14c478e412067537bc4b, type: 3}
+  m_Script: {fileID: 11500000, guid: c1f5c37d83ef1b44bb1e25bd6fcf5450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1998908707
