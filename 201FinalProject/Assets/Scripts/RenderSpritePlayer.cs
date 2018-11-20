@@ -2,31 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RenderSprite : MonoBehaviour
+public class RenderSpritePlayer : MonoBehaviour
 {
     public void LoadMonsterSprite(int type)
     {
         spriteR.sprite = sprites[type];
     }
-
-    public enum Type
-    {
-        BLOB,
-        Long,
-        Char_Star
-    }
-    public Type type;
     private SpriteRenderer spriteR;
     private Sprite[] sprites;
     void Awake()
     {
         spriteR = GetComponent<SpriteRenderer>();
         sprites = Resources.LoadAll<Sprite>("EnemySprites");
-        if(type == Type.BLOB)
+
+        List<monsterScript.Type> inventory = PlayerInventory.Inventory.InventoryList;
+        monsterScript.Type type = inventory[0];
+
+        if (type == monsterScript.Type.BLOB)
             LoadMonsterSprite(1);
-        else if (type == Type.Char_Star)
+        else if (type == monsterScript.Type.Char_Star)
             LoadMonsterSprite(567);
-        else if (type == Type.Long)
+        else if (type == monsterScript.Type.Long)
             LoadMonsterSprite(232);
     }
 }
