@@ -14,8 +14,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Main Sprites
+  - Background
   - 
   - 
   - 
@@ -42,12 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Wall
-    uniqueID: 319113455
+  - name: Background
+    uniqueID: 2900845781
     locked: 0
-  - name: Ground
-    uniqueID: 1288036167
+  - name: Main Sprites
+    uniqueID: 1491459065
     locked: 0
-  - name: Player
-    uniqueID: 1011782959
+  - name: UI
+    uniqueID: 2436513595
     locked: 0

@@ -5,7 +5,39 @@ using UnityEngine;
 [System.Serializable]
 public class monsterScript : MonoBehaviour
 {
+    public class Monster
+    {
+        public List<monsterMove> moves;
+        public int currHP;
+        public string MonsterName;
+        public Monster(Type type)
+        {
+            moves = new List<monsterMove>();
+            int maxHP = 100;
+            currHP = maxHP;
+            if (type == Type.BLOB)
+            {
+                MonsterName = "wild BLOB";
+                moves.Add(new monsterMove("blob one", 5));
+                moves.Add(new monsterMove("blob two", 10));
+            }
+            else if (type == Type.Long)
+            {
+                MonsterName = "wild Long";
+                moves.Add(new monsterMove("long one", 5));
+                moves.Add(new monsterMove("long two", 12));
+            }
+            else if (type == Type.Char_Star)
+            {
+                MonsterName = "wild Char_Star";
+                moves.Add(new monsterMove("long one", 5));
+                moves.Add(new monsterMove("long two", 15));
+            }
+        }
+    }
+
     private string FolderName;
+    [System.Serializable]
     public enum Type
     {
         BLOB,
@@ -15,76 +47,31 @@ public class monsterScript : MonoBehaviour
     public Type type;
     public string MonsterName;
     public bool status;
-    [HideInInspector]
-    public int currHP;
-    [HideInInspector]
-    public int maxHP;
-    [HideInInspector]
-    public List<monsterMove> moves;
-    [HideInInspector]
-    private SpriteRenderer spriteR;
-    private Sprite[] sprites;
-
-    public void LoadMonsterSprite(int type)
-    {
-        Debug.Log(sprites.Length);
-        //this assignment doesn't work after I made monsterScript into a ScriptableObject
-        spriteR.sprite = sprites[type];
-    }
+    public Monster MonsterInfo;
 
     // Use this for initialization
-    void Awake () {
-        spriteR = GetComponent<SpriteRenderer>();
-        moves = new List<monsterMove>();
-        maxHP = 100;
+    public void Awake ()
+    {
         status = false;
-        sprites = Resources.LoadAll<Sprite>("EnemySprites");
         if (!status)
         {
             //wild monster init
-            currHP = maxHP;
             if (type == Type.BLOB)
-            {
-                MonsterName = "wild BLOB";
-                LoadMonsterSprite(1);
-            }
+                MonsterInfo = new Monster(Type.BLOB);
             else if (type == Type.Long)
-            {
-                MonsterName = "wild Long";
-                LoadMonsterSprite(232);
-            }
+                MonsterInfo = new Monster(Type.Long);
             else if (type == Type.Char_Star)
-            {
-                MonsterName = "wild Char_Star";
-                LoadMonsterSprite(567);
-            }
-
-        }
-
-        if(type == Type.BLOB)
-        {
-            moves.Add(new monsterMove("blob one", 5));
-            moves.Add(new monsterMove("blob two", 10));
-        }
-        else if(type == Type.Long)
-        {
-            moves.Add(new monsterMove("long one", 5));
-            moves.Add(new monsterMove("long two", 12));
-        }
-        else if(type == Type.Char_Star)
-        {
-            moves.Add(new monsterMove("long one", 5));
-            moves.Add(new monsterMove("long two", 15));
+         `       MonsterInfo = new Monster(Type.Char_Star);
         }
 	}
 
     public int moveOne()
     {
-        return moves[0].dmg;
+        return MonsterInfo.moves[0].dmg;
     }
 
     public int moveTwo()
     {
-        return moves[1].dmg;
+        return MonsterInfo.moves[1].dmg;
     }
 }

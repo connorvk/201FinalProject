@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class BattleScene : MonoBehaviour {
     bool battle;
     bool playerWin;
-    GameObject curr;
-    GameObject enemy;
-    GameObject player;
+
+    private GameObject curr;
+    private GameObject enemy;
+    private GameObject player;
+    private monsterScript PlayerMonsterFromPlayer;
 
     [SerializeField]
-    GameObject BLOBpre;
+    GameObject Monster;
     [SerializeField]
-    GameObject LONGpre;
-    [SerializeField]
-    GameObject CSpr;
+    GameObject Player;
 
     [SerializeField]
     GameObject MessagePanel;
@@ -33,16 +33,27 @@ public class BattleScene : MonoBehaviour {
     Text playerHP;
 
     // Use this for initialization
-    void Start () {
+    void Awake ()
+    {
         battle = false;
         playerWin = false;
-        //generate a wild monster
-        enemy = (GameObject)Instantiate(BLOBpre, new Vector2(0,0), Quaternion.identity);
 
+        //generate a wild monster
+        //enemy = (GameObject)Instantiate(Monster, new Vector2(0, 0), Quaternion.identity);
+        enemy = Monster;
+        enemy.GetComponent<monsterScript>().Awake();
         //generate player monster
-        player = (GameObject)Instantiate(BLOBpre, new Vector2(0, 0), Quaternion.identity);
-        moveOne.GetComponentInChildren<Text>().text= player.GetComponent<monsterScript>().moves[0].moveName;
-        moveTwo.GetComponentInChildren<Text>().text = player.GetComponent<monsterScript>().moves[1].moveName;
+        //player = (GameObject)Instantiate(BLOBpre, new Vector2(0, 0), Quaternion.identity);
+
+        player = Player;
+        List<monsterScript> inventory = PlayerInventory.Inventory.InventoryList;
+        PlayerMonsterFromPlayer = inventory[0];
+        Debug.Log("Player's first monster: " + inventory.Count);
+        Debug.Log("Player's first monster: " + PlayerMonsterFromPlayer.type);
+        Debug.Log("Player's first monster: " + PlayerMonsterFromPlayer.MonsterInfo.moves.Count);
+
+        moveOne.GetComponentInChildren<Text>().text= PlayerMonsterFromPlayer.MonsterInfo.moves[0].moveName;
+        moveTwo.GetComponentInChildren<Text>().text = PlayerMonsterFromPlayer.MonsterInfo.moves[1].moveName;
         nextTurn();
 	}
 
@@ -51,7 +62,7 @@ public class BattleScene : MonoBehaviour {
         if (!battle)
         {
             battle = true;
-            if (player.GetComponent<monsterScript>().currHP > 0)
+            if (PlayerMonsterFromPlayer.MonsterInfo.currHP > 0)
             {
                 curr = player.gameObject;
                 MessageText.text = "Player Move.......";
@@ -60,7 +71,7 @@ public class BattleScene : MonoBehaviour {
         else if (battle)
         {
             battle = false;
-            if (enemy.GetComponent<monsterScript>().currHP > 0)
+            if (enemy.GetComponent<monsterScript>().MonsterInfo.currHP > 0)
             {
                 curr = enemy.gameObject;
                 MessageText.text = "Enemy Move!!!!!";
@@ -71,14 +82,14 @@ public class BattleScene : MonoBehaviour {
 
     public void makeMoveOne()
     {
-        enemy.GetComponent<monsterScript>().currHP -= player.GetComponent<monsterScript>().moves[0].dmg;
+        enemy.GetComponent<monsterScript>().MonsterInfo.currHP -= PlayerMonsterFromPlayer.MonsterInfo.moves[0].dmg;
         nextTurn();
     }
 
     public void makeMoveTwo()
     {
 
-        enemy.GetComponent<monsterScript>().currHP -= player.GetComponent<monsterScript>().moves[1].dmg;
+        enemy.GetComponent<monsterScript>().MonsterInfo.currHP -= PlayerMonsterFromPlayer.MonsterInfo.moves[1].dmg;
         nextTurn();
     }
 
@@ -87,11 +98,11 @@ public class BattleScene : MonoBehaviour {
         int n = Random.Range(0, 10);
         if(n >= 7)
         {
-            player.GetComponent<monsterScript>().currHP -= enemy.GetComponent<monsterScript>().moves[1].dmg;
+            PlayerMonsterFromPlayer.MonsterInfo.currHP -= enemy.GetComponent<monsterScript>().MonsterInfo.moves[1].dmg;
         }
         else
         {
-            player.GetComponent<monsterScript>().currHP -= enemy.GetComponent<monsterScript>().moves[0].dmg;
+            PlayerMonsterFromPlayer.MonsterInfo.currHP -= enemy.GetComponent<monsterScript>().MonsterInfo.moves[0].dmg;
         }
         nextTurn();
 
@@ -111,8 +122,9 @@ public class BattleScene : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	void Update () {
-        enemyHP.text = "Enemy hp: " + enemy.GetComponent<monsterScript>().currHP;
-        playerHP.text = "Player hp: " + player.GetComponent<monsterScript>().currHP;
+	void Update ()
+    {
+        playerHP.text = "Player hp: " + PlayerMonsterFromPlayer.MonsterInfo.currHP;
+        enemyHP.text = "Enemy hp: " + enemy.GetComponent<monsterScript>().MonsterInfo.currHP;
     }
 }
