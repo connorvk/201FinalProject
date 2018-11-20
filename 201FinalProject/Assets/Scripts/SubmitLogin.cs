@@ -42,7 +42,7 @@ public class SubmitLogin : MonoBehaviour {
         {
             user = user.ToLower();
 
-            Debug.Log(PlayerInventory.Inventory.InventoryList[0].MonsterName);
+            Debug.Log(PlayerInventory.Inventory.InventoryList[0]);
 
             string inventJSON = JsonUtility.ToJson(PlayerInventory.Inventory);
             userPackage = new TypeNamePass(type, user, pass, inventJSON);
@@ -51,7 +51,7 @@ public class SubmitLogin : MonoBehaviour {
 
             PlayerInventory.Inventory = JsonUtility.FromJson<ListWrapper>(userPackage.Userinventory);
 
-            Debug.Log(PlayerInventory.Inventory.InventoryList[0].MonsterName);
+            Debug.Log(PlayerInventory.Inventory.InventoryList[0]);
 
             string message = JsonUtility.ToJson(userPackage);
             //File.WriteAllText("Passin.json", message);

@@ -471,6 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ErrorResults: {fileID: 535738312}
+  isLogin: 0
 --- !u!114 &179218398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2353,3 +2354,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ErrorResults: {fileID: 535738312}
+  isLogin: 1

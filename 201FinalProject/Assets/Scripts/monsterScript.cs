@@ -10,8 +10,10 @@ public class monsterScript : MonoBehaviour
         public List<monsterMove> moves;
         public int currHP;
         public string MonsterName;
+        public Type MonsterType;
         public Monster(Type type)
         {
+            MonsterType = type;
             moves = new List<monsterMove>();
             int maxHP = 100;
             currHP = maxHP;
@@ -61,7 +63,7 @@ public class monsterScript : MonoBehaviour
             else if (type == Type.Long)
                 MonsterInfo = new Monster(Type.Long);
             else if (type == Type.Char_Star)
-         `       MonsterInfo = new Monster(Type.Char_Star);
+                MonsterInfo = new Monster(Type.Char_Star);
         }
 	}
 

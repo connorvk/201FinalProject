@@ -46,7 +46,7 @@ public class BattleScene : MonoBehaviour {
         //player = (GameObject)Instantiate(BLOBpre, new Vector2(0, 0), Quaternion.identity);
 
         player = Player;
-        List<monsterScript> inventory = PlayerInventory.Inventory.InventoryList;
+        List<monsterScript.Type> inventory = PlayerInventory.Inventory.InventoryList;
         PlayerMonsterFromPlayer = inventory[0];
         Debug.Log("Player's first monster: " + inventory.Count);
         Debug.Log("Player's first monster: " + PlayerMonsterFromPlayer.type);

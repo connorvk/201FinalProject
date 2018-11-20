@@ -6,17 +6,20 @@ public class PlayerInventory : MonoBehaviour
 {
 
     public static ListWrapper Inventory;
-    void AddMonster(monsterScript monster) { Inventory.InventoryList.Add(monster); }
-    void RemoveMonster(monsterScript monster) { Inventory.InventoryList.Remove(monster); }
-
+    public GameObject Monster;
+    void AddMonseter(monsterScript monster) { Inventory.InventoryList.Add(monster.MonsterInfo.MonsterType); }
+    void RemoveMonseter(monsterScript monster) { Inventory.InventoryList.Remove(monster.MonsterInfo.MonsterType); }
     // Use this for initialization
     void Awake ()
     {
         Inventory = new ListWrapper();
         //monsterScript DefaultMonster = ScriptableObject.CreateInstance<monsterScript>();
-        monsterScript DefaultMonster = new monsterScript();
-        DefaultMonster.Awake();
-        AddMonster(DefaultMonster);
+        //monsterScript DefaultMonster = new monsterScript();
+        //DefaultMonster.Awake();
+        //AddMonster(DefaultMonster);
+        monsterScript DefaultMonster = gameObject.AddComponent(typeof(monsterScript)) as monsterScript;
+        DefaultMonster.type = monsterScript.Type.BLOB;
+        AddMonseter(DefaultMonster);
 	}
 	
 	// Update is called once per frame
@@ -29,10 +32,10 @@ public class PlayerInventory : MonoBehaviour
 [System.Serializable]
 public class ListWrapper
 {
-    public List<monsterScript> InventoryList;
+    public List<monsterScript.Type> InventoryList;
 
     public ListWrapper()
     {
-        this.InventoryList = new List<monsterScript>();
+        this.InventoryList = new List<monsterScript.Type>();
     }
 }
