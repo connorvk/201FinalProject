@@ -22,7 +22,10 @@ public class ReadUserInfo : MonoBehaviour
     {
         //yield return new WaitUntil(() => !IsFileReady("Passin.json"));
         yield return new WaitUntil(() => IsFileReady("Passout.json"));
-        string message = File.ReadAllText("Passout.json");
+        string message = "";
+        while (!IsFileReady("Passout.json")) { }
+        while (message.Length == 0) { message = File.ReadAllText("Passout.json"); }
+        
         if (message != null)
         {
             UserResults ur = JsonUtility.FromJson<UserResults>(message);
@@ -64,6 +67,6 @@ public class ReadUserInfo : MonoBehaviour
         {
             Debug.Log(ioe.Message);
         }
-        return true;
+        return false;
     }
 }
