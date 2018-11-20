@@ -198,7 +198,7 @@ Prefab:
     - target: {fileID: 114629435300461004, guid: 55c2438cd607d3b418376204d1085c03,
         type: 2}
       propertyPath: type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55c2438cd607d3b418376204d1085c03, type: 2}
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f17cf678fbecf468f8a7c4ad5866d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   MonsterName: 
   status: 0
 --- !u!4 &560253130
