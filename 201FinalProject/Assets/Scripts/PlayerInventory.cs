@@ -7,8 +7,8 @@ public class PlayerInventory : MonoBehaviour
 
     public static ListWrapper Inventory;
     public GameObject Monster;
-    void AddMonseter(monsterScript monster) { Inventory.InventoryList.Add(monster.MonsterInfo.MonsterType); }
-    void RemoveMonseter(monsterScript monster) { Inventory.InventoryList.Remove(monster.MonsterInfo.MonsterType); }
+    public static void AddMonseter(monsterScript monster) { Inventory.InventoryList.Add(monster.MonsterInfo.MonsterType); }
+    public static void RemoveMonseter(monsterScript monster) { Inventory.InventoryList.Remove(monster.MonsterInfo.MonsterType); }
     // Use this for initialization
     void Awake ()
     {
@@ -25,7 +25,6 @@ public class PlayerInventory : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
 	}
 }
 

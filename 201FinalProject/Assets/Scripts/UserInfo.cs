@@ -5,6 +5,8 @@ using System.IO;
 
 public class UserInfo : MonoBehaviour {
     public static bool SignedIn; //the flag that determines if content is locked or not
+    public static string SignedInUser;
+    public static bool SaveResult;
 }
 
 //need a wrapper class for variables you want in the json file

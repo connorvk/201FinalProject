@@ -41,6 +41,7 @@ public class SubmitLogin : MonoBehaviour {
         if (!emptyField)
         {
             user = user.ToLower();
+            UserInfo.SignedInUser = user;
 
             Debug.Log(PlayerInventory.Inventory.InventoryList[0]);
 
