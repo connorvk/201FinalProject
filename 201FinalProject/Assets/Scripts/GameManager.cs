@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public LevelState CurrentState;
     public static Thread saveThread;
-    private EventWaitHandle saveThreadWait;
+    public static EventWaitHandle saveThreadWait;
     
     private bool saveThreadRunning;
 
@@ -39,23 +39,26 @@ public class GameManager : MonoBehaviour
         
         //TODO get the JSON file from connor to load forest
         CurrentState = LevelState.Forest;
-        UserInfo.SignedIn = false;
 
         //MultisaveThreading starts here
         saveThread = new Thread(save);
         saveThreadWait = new EventWaitHandle(true, EventResetMode.ManualReset);
         saveThread.Start();
+        StartCoroutine(ReadSaveFile());
     }
 
     public void save()
     {
+        Debug.Log("Save thread started");
         //Debug.Log("server started");
         saveThreadWait.Reset();
         saveThreadWait.WaitOne();
         //Do your work here user break
-        //Debug.Log("Put save code here");
+        Debug.Log("Save thread running");
+        Debug.Log(UserInfo.SignedIn);
         if (UserInfo.SignedIn)
         {
+            Debug.Log(UserInfo.SignedInUser + " Trying to save");
             string inventJSON = JsonUtility.ToJson(PlayerInventory.Inventory);
             TypeNamePass savePackage = new TypeNamePass("Save", UserInfo.SignedInUser, "null", inventJSON);
 
@@ -68,7 +71,7 @@ public class GameManager : MonoBehaviour
                 fs.Close();
                 fs.Dispose();
             }
-            WaitForResults();
+            
             if (UserInfo.SaveResult)
             {
                 Debug.Log("Saved");
@@ -77,20 +80,18 @@ public class GameManager : MonoBehaviour
         saveThreadWait.Reset();
     }
 
+    public void processSave()
+    {
+        saveThreadWait.Set();
+    }
 
     // Update is called once per frame
     void Update()
     {
     }
 
-    public void WaitForResults()
-    {
-        //need a coroutine to make it wait, I think
-        StartCoroutine(ReadFile());
-    }
-
     //I don't entirely understand this but it seems to put this script in a waiting state until the json exists
-    IEnumerator ReadFile()
+    IEnumerator ReadSaveFile()
     {
         yield return new WaitUntil(() => IsFileReady(UserInfo.SignedInUser + "Result.json"));
         string message = "";

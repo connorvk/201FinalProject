@@ -40,6 +40,7 @@ public class ReadUserInfo : MonoBehaviour
                 {
                     PlayerInventory.Inventory = JsonUtility.FromJson<ListWrapper>(ur.Userinventory);
                 }
+                Debug.Log("Signed In: " + UserInfo.SignedIn);
 
                 SceneManager.LoadScene(1);
             }

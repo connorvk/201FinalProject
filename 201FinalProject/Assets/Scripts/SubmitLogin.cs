@@ -17,6 +17,7 @@ public class SubmitLogin : MonoBehaviour {
 
     public void AttemptLogin(string type)
     {
+        UserInfo.SignedIn = false;
         bool emptyField = false;
         string user = UserField.text.Trim();
         string pass = PassField.text.Trim();
