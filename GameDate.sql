@@ -9,9 +9,9 @@ CREATE TABLE Userinfo(
 );
 
 INSERT INTO Userinfo (Username, UserPassword)
-	VALUES ('Vincent', '1111'),
-		   ('Baiyu', '2222'),
-           ('Connor', '3333');
+	VALUES ('vincent', '1111'),
+		   ('baiyu', '2222'),
+           ('connor', '3333');
 
 CREATE TABLE Inventory(	
 	Username VARCHAR(255),
@@ -21,9 +21,9 @@ CREATE TABLE Inventory(
 );
 
 INSERT INTO Inventory (Username, Userinventory, Login, InThread)
-	VALUES ('Vincent', 'aaaaaa', false, false),
-		   ('Baiyu', 'bbbbbb', false, false),
-           ('Connor', 'cccccc', false, false);
+	VALUES ('vincent', '{"InventoryList":[0]}', false, false),
+		   ('baiyu', '{"InventoryList":[0]}', false, false),
+           ('connor', '{"InventoryList":[0,2]}', false, false);
 
 CREATE TABLE Market(
 	MonsterID INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -35,6 +35,6 @@ CREATE TABLE Market(
 );
 
 INSERT INTO Market (Username, Monstername, Ask, HP, Attack)
-	VALUES ('Vincent', 'Mewtwo', 'Mew', 100, 20),
-		   ('Baiyu', 'Caterpie', 'Charizard', 5, 1),
-           ('Connor', 'Weedle', 'Blastoise', 5, 1);
+	VALUES ('vincent', 'BLOB', 'Long', 100, 20),
+		   ('baiyu', 'Long', 'BLOB', 5, 1),
+           ('connor', 'Char_Star', 'BLOB', 5, 1);
