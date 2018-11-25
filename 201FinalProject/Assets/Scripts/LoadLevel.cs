@@ -15,7 +15,7 @@ public class LoadLevel : MonoBehaviour
         {
             SceneManager.LoadScene(sceneIndex);
         }
-        else if (sceneIndex == 0 || sceneIndex == 2) //anyone can log out or go to forest level
+        else if (sceneIndex == 0 || sceneIndex == 1  || sceneIndex == 2) //anyone can log out or go to forest level
         {
             SceneManager.LoadScene(sceneIndex);
         }
