@@ -18,14 +18,19 @@ public class PlayerInventory : MonoBehaviour
         //DefaultMonster.Awake();
         //AddMonster(DefaultMonster);
         monsterScript DefaultMonster = gameObject.AddComponent(typeof(monsterScript)) as monsterScript;
-        DefaultMonster.type = monsterScript.Type.BLOB;
+        DefaultMonster.type = monsterScript.Type.Char_Star;
         AddMonseter(DefaultMonster);
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-	}
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log(Inventory.InventoryList.Count);
+            Debug.Log(Inventory.InventoryList[0].GetType());
+        }
+    }
 }
 
 [System.Serializable]

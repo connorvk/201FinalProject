@@ -46,7 +46,9 @@ public class BattleScene : MonoBehaviour {
         player = Player;
         List<monsterScript.Type> inventory = PlayerInventory.Inventory.InventoryList;
         PlayerMonsterFromPlayer = new monsterScript();
+        PlayerMonsterFromPlayer.type = inventory[0];
         PlayerMonsterFromPlayer.Awake();
+        Debug.Log("DEBUG HERE: " + PlayerMonsterFromPlayer.type);
         moveOne.GetComponentInChildren<Text>().text= PlayerMonsterFromPlayer.MonsterInfo.moves[0].moveName;
         moveTwo.GetComponentInChildren<Text>().text = PlayerMonsterFromPlayer.MonsterInfo.moves[1].moveName;
         nextTurn();
@@ -62,6 +64,8 @@ public class BattleScene : MonoBehaviour {
                 curr = player.gameObject;
                 MessageText.text = "Player Move.......";
             }
+            else
+                battleEnd();
         }
         else if (battle)
         {
@@ -72,6 +76,11 @@ public class BattleScene : MonoBehaviour {
                 Debug.Log("Enemy is moving");
                 curr = enemy.gameObject;
                 enemyAttack();
+            }
+            else
+            {
+                playerWin = true;
+                battleEnd();
             }
         }
     }
@@ -106,13 +115,15 @@ public class BattleScene : MonoBehaviour {
     {
         if (playerWin)
         {
-            //handle player
+            GameManager.instance.LoadForestScene();
+            PlayerInventory.Inventory.InventoryList.Add(enemy.GetComponent<monsterScript>().MonsterInfo.MonsterType);
+            GameManager.instance.processSave();
         }
         else if (!playerWin)
         {
-            //lol
+            GameManager.instance.LoadGameOverScene();
         }
-        
+
     }
 
 	// Update is called once per frame

@@ -15,17 +15,31 @@ public class GameManager : MonoBehaviour
         Desert
     }
     public static GameManager instance = null;
+    public static GameObject PlayerInstance = null;
     public GameObject player;
+    public GameObject monster;
     public LevelState CurrentState;
     public static Thread saveThread;
     public static EventWaitHandle saveThreadWait;
     
     private bool saveThreadRunning;
 
-    public void LoadBattleScene(LevelState state)
+    public void LoadBattleScene()
     {
-        player.SetActive(false);
+        PlayerInstance.SetActive(false);
         SceneManager.LoadScene("BattleScene");
+    }
+
+    public void LoadGameOverScene()
+    {
+        PlayerInstance.SetActive(false);
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void LoadForestScene()
+    {
+        PlayerInstance.SetActive(true);
+        SceneManager.LoadScene("ForestLevelScene2");
     }
 
     // Use this for initialization
@@ -33,10 +47,16 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+        else
+            Destroy(gameObject);
+        if (PlayerInstance == null)
+            PlayerInstance = player;
+        else
+            Destroy(player);
 
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(player);
-        
+
         //TODO get the JSON file from connor to load forest
         CurrentState = LevelState.Forest;
 

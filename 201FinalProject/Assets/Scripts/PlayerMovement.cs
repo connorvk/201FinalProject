@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour{
         {
             Debug.Log("Collide with enemy");
             //Load Battle Scene
-            GameManager.instance.LoadBattleScene(GameManager.instance.CurrentState);
+            GameManager.instance.LoadBattleScene();
         }
     }
 }
