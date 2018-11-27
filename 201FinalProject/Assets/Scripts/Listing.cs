@@ -62,7 +62,8 @@ public class Listing : MonoBehaviour {
             File.Delete("Passout.json");
         }
 
-        TradeRequest req = new TradeRequest(market.manager.player.name, monsterInfo.Seller, monsterInfo.Monster, monsterInfo.Ask);
+        //FIND ME A USERNAME HERE AS WELL.
+        TradeRequest req = new TradeRequest(UserInfo.SignedInUser, monsterInfo.Seller, monsterInfo.Monster, monsterInfo.Ask);
         string message = JsonUtility.ToJson(req);
         using (FileStream fs = File.Create("Passin.json"))
         {

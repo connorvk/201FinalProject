@@ -20,20 +20,20 @@ public class monsterScript : MonoBehaviour
             if (type == Type.BLOB)
             {
                 MonsterName = "wild BLOB";
-                moves.Add(new monsterMove("blob one", 5));
-                moves.Add(new monsterMove("blob two", 10));
+                moves.Add(new monsterMove("Goo Throw", 5));
+                moves.Add(new monsterMove("Toxic", 10));
             }
             else if (type == Type.Long)
             {
                 MonsterName = "wild Long";
-                moves.Add(new monsterMove("long one", 5));
-                moves.Add(new monsterMove("long two", 12));
+                moves.Add(new monsterMove("Bind", 5));
+                moves.Add(new monsterMove("Bite", 12));
             }
             else if (type == Type.Char_Star)
             {
                 MonsterName = "wild Char_Star";
-                moves.Add(new monsterMove("long one", 5));
-                moves.Add(new monsterMove("long two", 15));
+                moves.Add(new monsterMove("Throwing Star", 5));
+                moves.Add(new monsterMove("Charring", 15));
             }
         }
     }
