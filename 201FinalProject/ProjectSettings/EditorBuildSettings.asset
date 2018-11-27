@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestLevelScene2.unity
     guid: f678141ae5e7e084599f85ea4ad5d096
+  - enabled: 1
+    path: Assets/Scenes/MarketPlace.unity
+    guid: 24888f0ce9fc83a43b08bd61a4809ae0
+  - enabled: 1
+    path: Assets/Scenes/Inventory.unity
+    guid: 284c86c9c0b86e44fb2c00e58edf2c61
   m_configObjects: {}

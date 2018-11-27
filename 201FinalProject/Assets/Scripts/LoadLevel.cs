@@ -11,7 +11,15 @@ public class LoadLevel : MonoBehaviour
     public void OnPointerClick(int sceneIndex)
     {
         ErrorResults.text = "";
-        if (UserInfo.SignedIn)
+
+        if (SceneManager.GetSceneByBuildIndex(5).isLoaded)
+        {
+            Debug.Log("unload for market");
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(5));
+            SceneManager.UnloadSceneAsync(6);
+        }
+
+        else if (UserInfo.SignedIn)
         {
             SceneManager.LoadScene(sceneIndex);
         }

@@ -25,6 +25,11 @@ public class MarketPlaceManager : MonoBehaviour {
         SceneManager.LoadScene(1);
     }
 
+    public void addTrade()
+    {
+        SceneManager.LoadScene(6, LoadSceneMode.Additive);
+    }
+
     public void GetMarketplace()
     {
         Debug.Log("Starts get");
