@@ -99,7 +99,7 @@ public class DisplayInventory : MonoBehaviour {
 
         //GIMEM A USERNAME HERE!!!!
         //Also where do I find the mosnter hp?? (replace 100)
-        SellRequest req = new SellRequest("user", mon_name.text, ask, 100);
+        SellRequest req = new SellRequest(UserInfo.SignedInUser, mon_name.text, ask, 100);
         string message = JsonUtility.ToJson(req);
         Debug.Log(message);
         using (FileStream fs = File.Create("Passin.json"))

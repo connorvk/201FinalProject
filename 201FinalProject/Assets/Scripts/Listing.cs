@@ -63,7 +63,7 @@ public class Listing : MonoBehaviour {
         }
 
         //FIND ME A USERNAME HERE AS WELL.
-        TradeRequest req = new TradeRequest("username", monsterInfo.Seller, monsterInfo.Monster, monsterInfo.Ask);
+        TradeRequest req = new TradeRequest(UserInfo.SignedInUser, monsterInfo.Seller, monsterInfo.Monster, monsterInfo.Ask);
         string message = JsonUtility.ToJson(req);
         using (FileStream fs = File.Create("Passin.json"))
         {
