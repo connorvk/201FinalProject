@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Inventory.unity
     guid: 284c86c9c0b86e44fb2c00e58edf2c61
+  - enabled: 1
+    path: Assets/Scenes/FireLevel.unity
+    guid: 2df95185b51096c42bf31220661a6c62
   m_configObjects: {}
